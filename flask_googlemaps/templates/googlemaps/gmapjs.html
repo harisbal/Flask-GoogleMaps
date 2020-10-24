@@ -25,6 +25,7 @@
     var {{gmap.varname}}_polygons = [];
     var {{gmap.varname}}_polylines = [];
     var prev_infowindow_{{gmap.varname}} = null;
+    var marker = null;
 
     function initialize_{{gmap.varname}}() {
         document.getElementById('{{gmap.identifier}}').style.display = 'block';
@@ -71,6 +72,13 @@
                 );
            }
         }
+
+        {% if gmap.add_marker_onclick %}
+        google.maps.event.addListener(map, 'click', function(event) {
+           placeMarker(event.latLng);
+        });
+
+        {% endif %}
 
         {% if gmap.report_clickpos %}
         google.maps.event.addListener(
@@ -213,6 +221,17 @@
     	xhttp.open("POST", uri);
     	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhttp.send("lat=" + latLng.lat() + "&lng="  + latLng.lng());
+    }
+
+    function placeMarker(latLng) {
+        if (marker == null){
+              marker = new google.maps.Marker({
+                 position: latLng,
+                 map: map
+              });
+        }else{
+            marker.setPosition(latLng);
+        }
     }
 
     {% if gmap.collapsible %}

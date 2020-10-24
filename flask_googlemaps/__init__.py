@@ -47,6 +47,7 @@ class Map(object):
         center_on_user_location=False,
         report_clickpos=False,
         clickpos_uri="",
+        add_marker_onclick=False
         **kwargs
     ):
         """Builds the Map properties"""
@@ -81,6 +82,7 @@ class Map(object):
         self.center_on_user_location = center_on_user_location
         self.report_clickpos = report_clickpos
         self.clickpos_uri = clickpos_uri
+        self.add_marker_onclick = add_marker_onclick
 
         self.cluster = cluster
         self.cluster_imagepath = cluster_imagepath
