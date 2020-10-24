@@ -47,7 +47,7 @@ class Map(object):
         center_on_user_location=False,
         report_clickpos=False,
         clickpos_uri="",
-        add_marker_onclick=False
+        add_marker_onclick=False,
         **kwargs
     ):
         """Builds the Map properties"""
