@@ -33,6 +33,7 @@
             center: new google.maps.LatLng({{gmap.center.0}}, {{gmap.center.1}}),
             zoom: {{gmap.zoom}},
             mapTypeId: google.maps.MapTypeId.{{gmap.maptype}},
+            mapId: {{gmap.map_ids}},
             zoomControl: {% if gmap.zoom_control %}true{% else %}false{% endif %},
             mapTypeControl: {% if gmap.maptype_control %}true{% else %}false{% endif %},
             scaleControl: {% if gmap.scale_control %}true{% else %}false{% endif %},
