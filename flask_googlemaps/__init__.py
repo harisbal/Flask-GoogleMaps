@@ -24,6 +24,7 @@ class Map(object):
         zoom=13,  # type: int
         maptype="ROADMAP",  # type: str
         markers=None,  # type: Optional[Union[Dict, List, Tuple]]
+        map_ids=None,  # type: str
         varname="map",  # type: str
         style="height:300px;width:300px;margin:0;",  # type: str
         cls="map",  # type: str
@@ -49,38 +50,6 @@ class Map(object):
         center_on_user_location=False,  # type: bool
         report_clickpos=False,  # type: bool
         clickpos_uri="",  # type: str
-        identifier,
-        lat,
-        lng,
-        zoom=13,
-        maptype="ROADMAP",
-        markers=None,
-        map_ids=None,
-        varname="map",
-        style="height:300px;width:300px;margin:0;",
-        cls="map",
-        language="en",
-        region="US",
-        rectangles=None,
-        circles=None,
-        polylines=None,
-        polygons=None,
-        zoom_control=True,
-        maptype_control=True,
-        scale_control=True,
-        streetview_control=True,
-        rotate_control=True,
-        scroll_wheel=True,
-        fullscreen_control=True,
-        collapsible=False,
-        mapdisplay=False,
-        cluster=False,
-        cluster_imagepath=DEFAULT_CLUSTER_IMAGE_PATH,
-        cluster_gridsize=60,
-        fit_markers_to_bounds=False,
-        center_on_user_location=False,
-        report_clickpos=False,
-        clickpos_uri="",
         styles="",
         layer="",
         bicycle_layer=False,
@@ -120,7 +89,7 @@ class Map(object):
         self.center_on_user_location = center_on_user_location
         self.report_clickpos = report_clickpos
         self.clickpos_uri = clickpos_uri
-        self.add_marker_onclick = add_marker_onclick
+        # self.add_marker_onclick = add_marker_onclick
 
         self.cluster = cluster
         self.cluster_imagepath = cluster_imagepath
@@ -130,7 +99,6 @@ class Map(object):
         self.styles = styles
         self.layer = layer
         self.bicycle_layer = bicycle_layer
-
 
     def build_markers(self, markers):
         # type: (Optional[Union[Dict, List, Tuple]]) -> None
